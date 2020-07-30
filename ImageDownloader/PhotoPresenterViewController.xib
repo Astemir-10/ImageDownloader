@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="Ocb-2Q-jNy" customClass="PhotoPresenterViewController" customModule="ImageDownloader" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="nMw-64-ES6">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-bD-muL">
+                        <rect key="frame" x="0.0" y="52" width="414" height="754"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewLayout key="collectionViewLayout" id="Kw3-ik-Bpd" customClass="PhototPresenterLayout" customModule="ImageDownloader" customModuleProvider="target"/>
+                    </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbE-kf-g7U">
+                        <rect key="frame" x="0.0" y="806" width="414" height="56"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwH-ee-G13">
+                                <rect key="frame" x="358" y="0.0" width="56" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="VTa-bB-Jeq"/>
+                                    <constraint firstAttribute="height" constant="56" id="uoX-um-sjd"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="16" minY="13.5" maxX="16" maxY="13.5"/>
+                                <state key="normal" image="DeleteIconLarge"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-Id-e2C">
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="PYL-JQ-rjx"/>
+                                    <constraint firstAttribute="width" constant="56" id="pfA-5x-Z6y"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="16" minY="13.5" maxX="16" maxY="13.5"/>
+                                <state key="normal" image="ShareIconLarge"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kg-08-ADx">
+                                <rect key="frame" x="171" y="-16" width="72" height="72"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="Abq-Pn-4Cz"/>
+                                    <constraint firstAttribute="height" constant="72" id="QZI-5Q-Y6s"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="24" minY="22.5" maxX="24" maxY="22.5"/>
+                                <state key="normal" image="DownloadIconLarge"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundCorners" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.84699760397819623" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Qc-Id-e2C" firstAttribute="top" secondItem="GbE-kf-g7U" secondAttribute="top" id="5l8-TD-xMe"/>
+                            <constraint firstAttribute="bottom" secondItem="2Qc-Id-e2C" secondAttribute="bottom" id="7Aj-YZ-mf4"/>
+                            <constraint firstAttribute="bottom" secondItem="0Kg-08-ADx" secondAttribute="bottom" id="8UP-2E-UJJ"/>
+                            <constraint firstItem="DwH-ee-G13" firstAttribute="top" secondItem="GbE-kf-g7U" secondAttribute="top" id="LBY-JM-XAQ"/>
+                            <constraint firstAttribute="trailing" secondItem="DwH-ee-G13" secondAttribute="trailing" id="NQn-zD-cpw"/>
+                            <constraint firstItem="2Qc-Id-e2C" firstAttribute="leading" secondItem="GbE-kf-g7U" secondAttribute="leading" id="bRB-VQ-KzR"/>
+                            <constraint firstAttribute="height" constant="56" id="pO8-Tt-JxU"/>
+                            <constraint firstItem="0Kg-08-ADx" firstAttribute="centerX" secondItem="GbE-kf-g7U" secondAttribute="centerX" id="pXI-2P-etv"/>
+                            <constraint firstAttribute="bottom" secondItem="DwH-ee-G13" secondAttribute="bottom" id="rB8-qO-xO4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                <constraints>
+                    <constraint firstItem="GbE-kf-g7U" firstAttribute="leading" secondItem="r4c-2X-7iN" secondAttribute="leading" id="2fi-Cs-4DN"/>
+                    <constraint firstItem="NAU-bD-muL" firstAttribute="trailing" secondItem="r4c-2X-7iN" secondAttribute="trailing" id="7Z4-xL-bso"/>
+                    <constraint firstItem="GbE-kf-g7U" firstAttribute="trailing" secondItem="r4c-2X-7iN" secondAttribute="trailing" id="AVH-nI-CSJ"/>
+                    <constraint firstItem="NAU-bD-muL" firstAttribute="leading" secondItem="r4c-2X-7iN" secondAttribute="leading" id="Jaf-Vm-Iwk"/>
+                    <constraint firstItem="GbE-kf-g7U" firstAttribute="top" secondItem="NAU-bD-muL" secondAttribute="bottom" id="WOC-CE-GoU"/>
+                    <constraint firstItem="NAU-bD-muL" firstAttribute="top" secondItem="r4c-2X-7iN" secondAttribute="top" constant="8" id="bN6-ZV-Atl"/>
+                    <constraint firstItem="GbE-kf-g7U" firstAttribute="bottom" secondItem="r4c-2X-7iN" secondAttribute="bottom" id="oCG-re-fB9"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="r4c-2X-7iN"/>
+            </view>
+            <connections>
+                <outlet property="collectionView" destination="NAU-bD-muL" id="KzR-9d-Dy2"/>
+            </connections>
+            <point key="canvasLocation" x="150.72463768115944" y="180.80357142857142"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="DeleteIconLarge" width="110" height="119"/>
+        <image name="DownloadIconLarge" width="207" height="194"/>
+        <image name="ShareIconLarge" width="110" height="119"/>
+    </resources>
+</document>
