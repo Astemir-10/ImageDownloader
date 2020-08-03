@@ -14,5 +14,5 @@ public typealias HTTPHeader = [String: String]
 public enum HTTPTask {
   case request
   case requsetParameters(urlParameters: Parameters?, encoding: ParameterEncoding, allowedHeaders: HTTPHeader?)
-  case download(urlParameters: Parameters?)
+  case download(url: String?)
 }

@@ -7,14 +7,49 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class PhotoPresenterViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var currentImage: UIImageView!
+  var viewModel: PhotoPresenterViewModel!
+  var photos = [PexelsImage.Photo]()
+  var selectedIndex: Int?
+  var image: UIImage!
+  let disposeBag = DisposeBag()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
+    
     view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(dismissOnSwipeDown(_ :))))
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    viewModel.presentationImages.bind(to: collectionView.rx.items(cellIdentifier: PhotoPresenterCell.identifier, cellType: PhotoPresenterCell.self)) {_, model, cell in
+      cell.photoForPresenter.load(from: model.src.large2x)
+      print("OK")
+    }.disposed(by: disposeBag)
+    viewModel.presentationImages.onNext(viewModel.images)
+    
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    collectionView.scrollToItem(at: viewModel.selectedIndex!, at: .centeredHorizontally, animated: false)
+  }
+  
+  // MARK: Collection View Setup
+  fileprivate func setupCollectionView() {
+    let phototPresenterCellNib = UINib(nibName: String(describing: PhotoPresenterCell.self), bundle: nil)
+    collectionView.register(phototPresenterCellNib.self, forCellWithReuseIdentifier: PhotoPresenterCell.identifier)
+    let presenterPhotoLayout = PhototPresenterLayout()
+    presenterPhotoLayout.sectionInset = .zero
+    let itemSize = CGSize(width: view.frame.size.width, height: view.frame.size.height - 80)
+    presenterPhotoLayout.itemSize = itemSize
+    presenterPhotoLayout.scrollDirection = .horizontal
+    collectionView.collectionViewLayout = presenterPhotoLayout
   }
   
   @objc private func dismissOnSwipeDown(_ gesture: UIPanGestureRecognizer) {
@@ -26,40 +61,6 @@ class PhotoPresenterViewController: UIViewController {
         dismiss(animated: true, completion: nil)
       }
     }
-    
   }
   
-  // MARK: Collection View Setup
-  
-  fileprivate func setupCollectionView() {
-    collectionView.delegate = self
-    collectionView.dataSource = self
-    let nibName = String(describing: PhotoPresenterCell.self)
-    let phototPresenterCellNib = UINib(nibName: nibName, bundle: nil)
-    collectionView.register(phototPresenterCellNib, forCellWithReuseIdentifier: PhotoPresenterCell.identifier)
-  }
-  
-}
-
-// MARK: Collection View Delegate, Data Source
-
-extension PhotoPresenterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 10
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoPresenterCell.identifier,
-                                                        for: indexPath) as? PhotoPresenterCell else {return UICollectionViewCell()}
-    cell.photoForPresenter.image = #imageLiteral(resourceName: "Photo 2")
-    
-    return cell
-  }
-}
-
-extension PhotoPresenterViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let screenSize = collectionView.bounds.size
-    return screenSize
-  }
 }

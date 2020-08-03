@@ -15,41 +15,41 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-bD-muL">
-                        <rect key="frame" x="0.0" y="52" width="414" height="754"/>
+                        <rect key="frame" x="0.0" y="52" width="414" height="762"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewLayout key="collectionViewLayout" id="Kw3-ik-Bpd" customClass="PhototPresenterLayout" customModule="ImageDownloader" customModuleProvider="target"/>
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbE-kf-g7U">
-                        <rect key="frame" x="0.0" y="806" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="814" width="414" height="48"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwH-ee-G13">
-                                <rect key="frame" x="358" y="0.0" width="56" height="56"/>
+                                <rect key="frame" x="366" y="0.0" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="VTa-bB-Jeq"/>
-                                    <constraint firstAttribute="height" constant="56" id="uoX-um-sjd"/>
+                                    <constraint firstAttribute="width" constant="48" id="VTa-bB-Jeq"/>
+                                    <constraint firstAttribute="height" constant="48" id="uoX-um-sjd"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="16" minY="13.5" maxX="16" maxY="13.5"/>
                                 <state key="normal" image="DeleteIconLarge"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-Id-e2C">
-                                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="PYL-JQ-rjx"/>
-                                    <constraint firstAttribute="width" constant="56" id="pfA-5x-Z6y"/>
+                                    <constraint firstAttribute="height" constant="48" id="PYL-JQ-rjx"/>
+                                    <constraint firstAttribute="width" constant="48" id="h4k-2e-xNK"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="16" minY="13.5" maxX="16" maxY="13.5"/>
                                 <state key="normal" image="ShareIconLarge"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kg-08-ADx">
-                                <rect key="frame" x="171" y="-16" width="72" height="72"/>
+                                <rect key="frame" x="175" y="-24" width="64" height="64"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="Abq-Pn-4Cz"/>
-                                    <constraint firstAttribute="height" constant="72" id="QZI-5Q-Y6s"/>
+                                    <constraint firstAttribute="width" constant="64" id="Abq-Pn-4Cz"/>
+                                    <constraint firstAttribute="height" constant="64" id="QZI-5Q-Y6s"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="24" minY="22.5" maxX="24" maxY="22.5"/>
+                                <inset key="imageEdgeInsets" minX="22" minY="20.5" maxX="22" maxY="20.5"/>
                                 <state key="normal" image="DownloadIconLarge"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundCorners" value="YES"/>
@@ -60,11 +60,11 @@
                         <constraints>
                             <constraint firstItem="2Qc-Id-e2C" firstAttribute="top" secondItem="GbE-kf-g7U" secondAttribute="top" id="5l8-TD-xMe"/>
                             <constraint firstAttribute="bottom" secondItem="2Qc-Id-e2C" secondAttribute="bottom" id="7Aj-YZ-mf4"/>
-                            <constraint firstAttribute="bottom" secondItem="0Kg-08-ADx" secondAttribute="bottom" id="8UP-2E-UJJ"/>
+                            <constraint firstAttribute="bottom" secondItem="0Kg-08-ADx" secondAttribute="bottom" constant="8" id="8UP-2E-UJJ"/>
                             <constraint firstItem="DwH-ee-G13" firstAttribute="top" secondItem="GbE-kf-g7U" secondAttribute="top" id="LBY-JM-XAQ"/>
                             <constraint firstAttribute="trailing" secondItem="DwH-ee-G13" secondAttribute="trailing" id="NQn-zD-cpw"/>
                             <constraint firstItem="2Qc-Id-e2C" firstAttribute="leading" secondItem="GbE-kf-g7U" secondAttribute="leading" id="bRB-VQ-KzR"/>
-                            <constraint firstAttribute="height" constant="56" id="pO8-Tt-JxU"/>
+                            <constraint firstAttribute="height" constant="48" id="pO8-Tt-JxU"/>
                             <constraint firstItem="0Kg-08-ADx" firstAttribute="centerX" secondItem="GbE-kf-g7U" secondAttribute="centerX" id="pXI-2P-etv"/>
                             <constraint firstAttribute="bottom" secondItem="DwH-ee-G13" secondAttribute="bottom" id="rB8-qO-xO4"/>
                         </constraints>

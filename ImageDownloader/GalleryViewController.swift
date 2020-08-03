@@ -24,14 +24,16 @@ class GalleryViewController: UIViewController {
   
   // Setup CollectionView
   fileprivate func setupCollectionView() {
-    let nibName = String(describing: ImageCollectionViewCell.self)
+    let nibName = String(describing: SearchImageCell.self)
     let cellNib = UINib(nibName: nibName, bundle: nil)
     collectionView.register(cellNib.self, forCellWithReuseIdentifier: "Cell")
     
     let observable = Observable<[String]>.just(models)
-    observable.bind(to: collectionView.rx.items(cellIdentifier: "Cell", cellType: ImageCollectionViewCell.self)) { _, photo, cell in
+    observable.bind(to: collectionView.rx.items(cellIdentifier: "Cell", cellType: SearchImageCell.self)) { _, photo, cell in
       cell.cellImage.load(from: photo)
     }.disposed(by: disposeBag)
+    
+    
     
   }
   

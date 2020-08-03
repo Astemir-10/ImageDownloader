@@ -22,6 +22,7 @@ extension UIViewController {
 
 extension UIImageView {
   func load(from urlString: String) {
+    let networkManager = NetworkManager()
     guard let url = URL(string: urlString) else {return}
     let request = URLRequest(url: url)
     if let imageData = URLCache.shared.cachedResponse(for: request)?.data {
@@ -29,8 +30,12 @@ extension UIImageView {
       return
     }
     
-    NetworkService.loadData(url: url) { [unowned self] (data) in
-      guard let image = UIImage(data: data) else {return}
+    networkManager.downloadImage(for: urlString) { (data, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      guard let data = data, let image = UIImage(data: data) else {return}
       DispatchQueue.main.async {
         self.image = image
       }
@@ -42,7 +47,6 @@ extension UIImageView {
     guard let cachedResponse = URLCache.shared.cachedResponse(for: request) else {return}
     URLCache.shared.storeCachedResponse(cachedResponse, for: request)
   }
-  
 }
 
 @IBDesignable

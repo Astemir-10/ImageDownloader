@@ -26,6 +26,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
       task = session.dataTask(with: request) { data, response, error in
         completion(data, response, error)
       }
+      task?.resume()
     } catch {
       completion(nil, nil, error)
     }
@@ -45,8 +46,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
       case .requsetParameters(urlParameters: let urlParameters, encoding: let encoding, allowedHeaders: let allowedHeaders):
         try self.configureParameters(encoding: encoding, urlParameter: urlParameters, with: &request)
         self.additionalHeader(additionalHeaders: allowedHeaders, request: &request)
-      case .download(urlParameters: let urlParameters):
-        break
+      case .download(url: let url):
+        guard let urlString = url, let url = URL(string: urlString) else {throw NetworkError.urlError}
+        request.url = url
       }
       return request
     } catch {
@@ -65,8 +67,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
   
   fileprivate func additionalHeader(additionalHeaders: HTTPHeader?, request: inout URLRequest) {
     guard let headers = additionalHeaders else {return}
-    for (key, value) in headers {
-      request.setValue(key, forHTTPHeaderField: value)
-    }
+    request.allHTTPHeaderFields = headers
   }
 }

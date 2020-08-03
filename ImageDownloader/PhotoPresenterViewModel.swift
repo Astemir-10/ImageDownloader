@@ -7,7 +7,16 @@
 //
 
 import Foundation
+import RxSwift
 
 class PhotoPresenterViewModel {
+  var presentationImages: PublishSubject<[PexelsImage.Photo]>!
+  var images: [PexelsImage.Photo]!
+  var selectedIndex: IndexPath?
   
+  init(selectedIndex: IndexPath, images: [PexelsImage.Photo]) {
+    self.selectedIndex = selectedIndex
+    self.images = images
+    self.presentationImages = PublishSubject<[PexelsImage.Photo]>()
+  }
 }
