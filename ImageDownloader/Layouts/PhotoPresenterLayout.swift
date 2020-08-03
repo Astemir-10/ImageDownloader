@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhototPresenterLayout: UICollectionViewFlowLayout {
+class PhotoPresenterLayout: UICollectionViewFlowLayout {
   
   override func prepare() {
     self.scrollDirection = .horizontal

@@ -39,11 +39,9 @@ class SearchImageVC: UIViewController {
         strongSelf.view.endEditing(true)
       } else {
         let viewModelForPresentation = strongSelf.viewModel.openPhoto(on: indexPath)
-        let nibName = String(describing: PhotoPresenterViewController.self)
-        guard let presentationVC = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? PhotoPresenterViewController else {return}
-        print("loadNibNamed")
+        
+        let presentationVC = PhotoPresenterViewController()
         presentationVC.viewModel = viewModelForPresentation
-        print( presentationVC.viewModel)
         presentationVC.modalPresentationStyle = .fullScreen
         strongSelf.present(presentationVC, animated: true)
       }

@@ -13,7 +13,6 @@
 		E280F4EF24C7174E00A3E006 /* SearchImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280F4EE24C7174E00A3E006 /* SearchImageCell.swift */; };
 		E280F4F124C7179600A3E006 /* SearchImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E280F4F024C7179600A3E006 /* SearchImageCell.xib */; };
 		E2A0506824CE2FB300A5A6C3 /* PhotoPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0506624CE2FB300A5A6C3 /* PhotoPresenterViewController.swift */; };
-		E2A0506C24CE2FE700A5A6C3 /* PhotoPresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A0506B24CE2FE700A5A6C3 /* PhotoPresenterViewController.xib */; };
 		E2A0506E24CE345700A5A6C3 /* PhotoPresenterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0506D24CE345700A5A6C3 /* PhotoPresenterLayout.swift */; };
 		E2A0507224CE359800A5A6C3 /* PhotoPresenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0507024CE359800A5A6C3 /* PhotoPresenterCell.swift */; };
 		E2A0507324CE359800A5A6C3 /* PhotoPresenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A0507124CE359800A5A6C3 /* PhotoPresenterCell.xib */; };
@@ -92,7 +91,6 @@
 		E280F4EE24C7174E00A3E006 /* SearchImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCell.swift; sourceTree = "<group>"; };
 		E280F4F024C7179600A3E006 /* SearchImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchImageCell.xib; sourceTree = "<group>"; };
 		E2A0506624CE2FB300A5A6C3 /* PhotoPresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenterViewController.swift; sourceTree = "<group>"; };
-		E2A0506B24CE2FE700A5A6C3 /* PhotoPresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPresenterViewController.xib; sourceTree = "<group>"; };
 		E2A0506D24CE345700A5A6C3 /* PhotoPresenterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenterLayout.swift; sourceTree = "<group>"; };
 		E2A0507024CE359800A5A6C3 /* PhotoPresenterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenterCell.swift; sourceTree = "<group>"; };
 		E2A0507124CE359800A5A6C3 /* PhotoPresenterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPresenterCell.xib; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				E2A0506624CE2FB300A5A6C3 /* PhotoPresenterViewController.swift */,
-				E2A0506B24CE2FE700A5A6C3 /* PhotoPresenterViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -535,7 +532,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2FBB27824D75646006190EB /* SearchImageVC.storyboard in Resources */,
-				E2A0506C24CE2FE700A5A6C3 /* PhotoPresenterViewController.xib in Resources */,
 				E2EE664724C386B90072EA11 /* LaunchScreen.storyboard in Resources */,
 				E2A0507324CE359800A5A6C3 /* PhotoPresenterCell.xib in Resources */,
 				E280F4F124C7179600A3E006 /* SearchImageCell.xib in Resources */,
