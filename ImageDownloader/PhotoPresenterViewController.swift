@@ -31,7 +31,6 @@ class PhotoPresenterViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
-    
     view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(dismissOnSwipeDown(_ :))))
   }
   
@@ -43,6 +42,7 @@ class PhotoPresenterViewController: UIViewController {
     }.disposed(by: disposeBag)
     viewModel.presentationImages.onNext(viewModel.images)
     collectionView.scrollToItem(at: viewModel.selectedIndex!, at: .centeredHorizontally, animated: false)
+    
   }
   
   // MARK: Collection View Setup
@@ -60,5 +60,4 @@ class PhotoPresenterViewController: UIViewController {
       }
     }
   }
-  
 }

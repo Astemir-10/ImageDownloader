@@ -12,6 +12,7 @@ import RxCocoa
 
 class SearchImageVC: UIViewController {
   
+  @IBOutlet var searchBar: UIView!
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var searchWordTextField: UITextField!
   private var viewModel: SearchImageViewModel!
@@ -46,36 +47,13 @@ class SearchImageVC: UIViewController {
         strongSelf.present(presentationVC, animated: true)
       }
     }.disposed(by: disposeBag)
-    
+    collectionView.rx.didEndDragging.bind { (_) in
+      if self.collectionView.contentOffset.y > UIScreen.main.bounds.height + 40 {
+        print("OK")
+      }
+    }.disposed(by: disposeBag)
   }
   @IBAction func openGalleryAction(_ sender: Any) {
     
   }
-  
 }
-
-//extension SearchImageVC: UICollectionViewDelegate, UICollectionViewDataSource {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return 10
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchImageCell.identifier, for: indexPath) as? SearchImageCell else {fatalError()}
-//    cell.cellImage.image = #imageLiteral(resourceName: "Photo 16")
-//    cell.backgroundColor = .black
-//    return cell
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    if searchWordTextField.isEditing {
-//      view.endEditing(true)
-//      return
-//    }
-//      let nibName = String(describing: PhotoPresenterViewController.self)
-//      guard let photoPresenter = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? PhotoPresenterViewController else {return}
-//      photoPresenter.modalPresentationStyle = .fullScreen
-//
-//      present(photoPresenter, animated: true)
-//
-//  }
-//}

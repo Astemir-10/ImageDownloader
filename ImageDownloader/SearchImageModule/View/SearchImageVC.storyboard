@@ -102,6 +102,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="kpC-Cc-BNz" id="0ya-SN-jQr"/>
+                        <outlet property="searchBar" destination="4WQ-Ni-o76" id="S2I-U9-AUF"/>
                         <outlet property="searchWordTextField" destination="CPk-dL-4GV" id="E6I-u4-WNf"/>
                     </connections>
                 </viewController>

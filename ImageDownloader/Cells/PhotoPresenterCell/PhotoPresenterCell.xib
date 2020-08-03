@@ -16,21 +16,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="279" height="361"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-DM-AZl">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Flg-q3-idA">
                         <rect key="frame" x="0.0" y="0.0" width="279" height="361"/>
-                    </imageView>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-DM-AZl">
+                                <rect key="frame" x="0.0" y="0.0" width="279" height="361"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="3zP-DM-AZl" firstAttribute="top" secondItem="Flg-q3-idA" secondAttribute="top" id="Anr-bp-sfl"/>
+                            <constraint firstAttribute="trailing" secondItem="3zP-DM-AZl" secondAttribute="trailing" id="Cdd-JJ-5zI"/>
+                            <constraint firstItem="3zP-DM-AZl" firstAttribute="centerY" secondItem="Flg-q3-idA" secondAttribute="centerY" id="au8-UO-Gwm"/>
+                            <constraint firstAttribute="bottom" secondItem="3zP-DM-AZl" secondAttribute="bottom" id="bei-5P-hgw"/>
+                            <constraint firstItem="3zP-DM-AZl" firstAttribute="centerX" secondItem="Flg-q3-idA" secondAttribute="centerX" id="hCl-BT-8lH"/>
+                            <constraint firstItem="3zP-DM-AZl" firstAttribute="leading" secondItem="Flg-q3-idA" secondAttribute="leading" id="luD-Mb-woh"/>
+                        </constraints>
+                    </scrollView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="3zP-DM-AZl" secondAttribute="trailing" id="JoW-0i-UaR"/>
-                <constraint firstAttribute="bottom" secondItem="3zP-DM-AZl" secondAttribute="bottom" id="Luv-OM-5JY"/>
-                <constraint firstItem="3zP-DM-AZl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MO4-Hj-yGX"/>
-                <constraint firstItem="3zP-DM-AZl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Rzn-mr-jJJ"/>
+                <constraint firstItem="Flg-q3-idA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PpA-jT-Kcq"/>
+                <constraint firstItem="Flg-q3-idA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dQ1-NH-ZLT"/>
+                <constraint firstAttribute="trailing" secondItem="Flg-q3-idA" secondAttribute="trailing" id="eMO-JM-yQC"/>
+                <constraint firstAttribute="bottom" secondItem="Flg-q3-idA" secondAttribute="bottom" id="m7P-XI-ZT2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="279" height="361"/>
             <connections>
                 <outlet property="photoForPresenter" destination="3zP-DM-AZl" id="Ric-RX-myJ"/>
+                <outlet property="scrollView" destination="Flg-q3-idA" id="xdw-ak-PBJ"/>
             </connections>
             <point key="canvasLocation" x="302.17391304347831" y="232.03125"/>
         </collectionViewCell>
