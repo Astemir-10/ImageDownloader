@@ -9,10 +9,19 @@
 import UIKit
 
 extension UIViewController {
-  func loadFromStoryboard<T> () -> T {
+  class func loadFromStoryboard<T: UIViewController> () -> T {
     let storyboardName = String(describing: T.self)
-    let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+    let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle(identifier: storyboardName))
     if let viewController = storyboard.instantiateInitialViewController() as? T {
+      return viewController
+    } else {
+      fatalError("Doesn't exist storyboard with name \(storyboardName)")
+    }
+  }
+  
+  class func loadFromStoryboard<T: UIViewController> (storyboardName: String, withId: String) -> T {
+    let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle(identifier: storyboardName))
+    if let viewController = storyboard.instantiateViewController(identifier: withId) as? T {
       return viewController
     } else {
       fatalError("Doesn't exist storyboard with name \(storyboardName)")
@@ -49,29 +58,3 @@ extension UIImageView {
   }
 }
 
-@IBDesignable
-extension UIView {
-  @IBInspectable var cornerRadius: CGFloat {
-    get {
-      return self.layer.cornerRadius
-    }
-    set {
-      self.clipsToBounds = true
-      layer.cornerRadius = newValue
-    }
-  }
-  
-  @IBInspectable var roundCorners: Bool {
-    get {
-      return self.roundCorners
-    }
-    set {
-      if newValue {
-        self.layer.cornerRadius = self.frame.height / 2
-      } else {
-        self.layer.cornerRadius = cornerRadius
-      }
-    }
-  }
-  
-}

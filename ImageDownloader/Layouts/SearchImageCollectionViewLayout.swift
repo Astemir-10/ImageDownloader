@@ -29,14 +29,17 @@ class SearchImageCollectionViewLayout: UICollectionViewLayout {
   }
   
   override func prepare() {
-    guard cache.isEmpty == true else {return}
+    super.prepare()
+    contentHeight = 0
+    cache.removeAll()
+    guard cache.isEmpty else {return}
     let xOffset = calculateXOffsets()
     let yOffset = calculateYOffsets()
     calculatingCells(xOffset: xOffset, yOffset: yOffset)
+    contentHeight += 20
   }
   
   func calculatingCells(xOffset: [CGFloat], yOffset: [CGFloat]) {
-    guard cache.isEmpty == true else {return}
     guard  let collectionView = collectionView else {return}
     let widths = calculateWidth()
     var flag = false
@@ -90,7 +93,6 @@ class SearchImageCollectionViewLayout: UICollectionViewLayout {
         visableLayoutAttributes.append(attribute)
       }
     }
-    print(cache.count)
     return visableLayoutAttributes
   }
   

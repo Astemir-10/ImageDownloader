@@ -45,6 +45,7 @@
             <size key="customSize" width="175" height="215"/>
             <connections>
                 <outlet property="cellImage" destination="F66-4A-Mr6" id="RS4-Gd-QS9"/>
+                <outlet property="deleteButton" destination="hKs-g7-lbM" id="f30-ma-JgG"/>
                 <outlet property="loadingActivityIndicator" destination="9Tp-ry-hdl" id="miI-uo-MUM"/>
             </connections>
             <point key="canvasLocation" x="195.6521739130435" y="124.88839285714285"/>

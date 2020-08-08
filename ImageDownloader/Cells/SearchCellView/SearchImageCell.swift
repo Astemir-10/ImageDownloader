@@ -10,10 +10,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol SearchViewCellDlegate: class {
+  func downloadPhoto(indexPath: Int)
+}
+
 class SearchImageCell: UICollectionViewCell {
   
   static let identifier = String(describing: self)
-  
+  weak var delegate: SearchViewCellDlegate?
+  fileprivate var indexCell: Int?
+  @IBOutlet weak var deleteButton: UIButton!
   @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var cellImage: UIImageView!
   
@@ -33,13 +39,25 @@ class SearchImageCell: UICollectionViewCell {
   }
   override func draw(_ rect: CGRect) {
     super.draw(rect)
-//    loadingActivityIndicator.startAnimating()
+    loadingActivityIndicator.startAnimating()
   }
   
   func setup(photo: PexelsImage.Photo) {
     cellImage.load(from: photo.src.medium)
   }
   
+  func setDelegate(indexPath: Int, delegate: SearchViewCellDlegate) {
+    self.delegate = delegate
+    self.indexCell = indexPath
+  }
+    
   @objc fileprivate func downloadImage(_ gesture: UILongPressGestureRecognizer) {
+    switch gesture.state {
+    case .began:
+      guard let delegate = delegate, let indexCell = indexCell else {return}
+      delegate.downloadPhoto(indexPath: indexCell)
+    default: break
+    }
+    
   }
 }

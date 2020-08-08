@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xwp-4F-6Dr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xwp-4F-6Dr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Галерея" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiP-Y8-tgM">
-                                <rect key="frame" x="12" y="60" width="394" height="39.5"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="28"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Галерея" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiP-Y8-tgM">
+                                <rect key="frame" x="162.5" y="60" width="89" height="31"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Medium" family="PingFang HK" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="0.84705882352941175" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2U-XU-aW3">
-                                <rect key="frame" x="374" y="66" width="28" height="28"/>
+                                <rect key="frame" x="374" y="61.5" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="J97-Vf-tgL"/>
                                     <constraint firstAttribute="height" constant="28" id="cuh-2Y-0Jz"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SnZ-wy-SLe">
-                                <rect key="frame" x="0.0" y="99.5" width="414" height="762.5"/>
+                                <rect key="frame" x="0.0" y="91" width="414" height="771"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="1zC-1B-tID" customClass="SearchImageCollectionViewLayout" customModule="ImageDownloader" customModuleProvider="target"/>
                                 <cells>
@@ -48,23 +48,51 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPK-xM-Gi5">
+                                <rect key="frame" x="350" y="61.5" width="52" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="LpE-qB-9nY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="Готово"/>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="xwp-4F-6Dr" eventType="touchUpInside" id="mzU-Xb-UM8"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zji-zV-QYA">
+                                <rect key="frame" x="12" y="61.5" width="94" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="PXJ-Mf-Be2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="Удалить все"/>
+                                <connections>
+                                    <action selector="removeAllAction:" destination="xwp-4F-6Dr" eventType="touchUpInside" id="Q8k-e4-I4C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="lOL-wB-XXP" firstAttribute="bottom" secondItem="SnZ-wy-SLe" secondAttribute="bottom" id="20z-2t-h6p"/>
                             <constraint firstItem="lOL-wB-XXP" firstAttribute="trailing" secondItem="SnZ-wy-SLe" secondAttribute="trailing" id="9Fe-bO-nIQ"/>
+                            <constraint firstItem="zji-zV-QYA" firstAttribute="leading" secondItem="lOL-wB-XXP" secondAttribute="leading" constant="12" id="BgL-tb-b9t"/>
+                            <constraint firstItem="oiP-Y8-tgM" firstAttribute="centerX" secondItem="4dq-ee-xQ7" secondAttribute="centerX" id="Ivz-vk-9H4"/>
                             <constraint firstItem="Y2U-XU-aW3" firstAttribute="centerY" secondItem="oiP-Y8-tgM" secondAttribute="centerY" id="KCe-1l-1YP"/>
-                            <constraint firstItem="lOL-wB-XXP" firstAttribute="trailing" secondItem="oiP-Y8-tgM" secondAttribute="trailing" constant="8" id="PIF-HS-6ma"/>
+                            <constraint firstItem="zji-zV-QYA" firstAttribute="centerY" secondItem="oiP-Y8-tgM" secondAttribute="centerY" id="M6u-YB-Wvk"/>
+                            <constraint firstItem="lOL-wB-XXP" firstAttribute="trailing" secondItem="zPK-xM-Gi5" secondAttribute="trailing" constant="12" id="McK-O4-r9h"/>
                             <constraint firstItem="SnZ-wy-SLe" firstAttribute="top" secondItem="oiP-Y8-tgM" secondAttribute="bottom" id="QkV-vU-0ez"/>
+                            <constraint firstItem="zPK-xM-Gi5" firstAttribute="centerY" secondItem="oiP-Y8-tgM" secondAttribute="centerY" id="R9g-fB-IvB"/>
                             <constraint firstItem="lOL-wB-XXP" firstAttribute="trailing" secondItem="Y2U-XU-aW3" secondAttribute="trailing" constant="12" id="b1N-t9-euR"/>
-                            <constraint firstItem="oiP-Y8-tgM" firstAttribute="leading" secondItem="lOL-wB-XXP" secondAttribute="leading" constant="12" id="b2F-cN-xEv"/>
                             <constraint firstItem="SnZ-wy-SLe" firstAttribute="leading" secondItem="lOL-wB-XXP" secondAttribute="leading" id="xxb-EE-sZA"/>
                             <constraint firstItem="oiP-Y8-tgM" firstAttribute="top" secondItem="lOL-wB-XXP" secondAttribute="top" constant="16" id="yPw-yl-a54"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lOL-wB-XXP"/>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="Y2U-XU-aW3" id="PmR-3L-lGn"/>
                         <outlet property="collectionView" destination="SnZ-wy-SLe" id="ydc-S7-ZUs"/>
+                        <outlet property="doneButton" destination="zPK-xM-Gi5" id="jDz-3k-jcg"/>
+                        <outlet property="removeAllButton" destination="zji-zV-QYA" id="ffO-zV-o9M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYP-rF-tJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
