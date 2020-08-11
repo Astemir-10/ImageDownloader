@@ -57,4 +57,3 @@ extension UIImageView {
     URLCache.shared.storeCachedResponse(cachedResponse, for: request)
   }
 }
-

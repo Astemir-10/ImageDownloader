@@ -20,17 +20,19 @@ class GalleryCell: UICollectionViewCell {
   fileprivate var index: Int?
   fileprivate var editingFlag = false
   static let identifire = String(describing: self)
+  
+  // Life Cycle
   override func awakeFromNib() {
     super.awakeFromNib()
     layer.cornerRadius = 10
     imageGallery.layer.cornerRadius = 10
 
-    
     imageGallery.clipsToBounds = true
     clipsToBounds = true
     addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(editingCell(_ :))))
-    // Initialization code
   }
+  
+  
   override func draw(_ rect: CGRect) {
     super.draw(rect)
   }
@@ -51,8 +53,10 @@ class GalleryCell: UICollectionViewCell {
   func setEditing(editing: Bool) {
     if editing {
       deleteButton.isHidden = false
+      startShake()
     } else {
       deleteButton.isHidden = true
+      stopShake()
     }
   }
   
@@ -73,4 +77,26 @@ class GalleryCell: UICollectionViewCell {
     }
   }
   
+  private func startShake() {
+    let shakeAnimation = CABasicAnimation(keyPath: "transform.rotation")
+    shakeAnimation.duration = 0.05
+    shakeAnimation.repeatCount = 4
+    shakeAnimation.autoreverses = true
+    shakeAnimation.duration = 0.2
+    shakeAnimation.repeatCount = 99999
+    
+    let startAngle: Float = (-2) * 3.14159 / 450
+    let stopAngle = -startAngle
+    
+    shakeAnimation.fromValue = NSNumber(value: startAngle)
+    shakeAnimation.byValue = NSNumber(value: 3 * stopAngle)
+    shakeAnimation.autoreverses = true
+    shakeAnimation.timeOffset = 290 * drand48()
+    
+    self.layer.add(shakeAnimation, forKey: "shakeAnimation")
+  }
+  
+  private func stopShake() {
+    self.layer.removeAnimation(forKey: "shakeAnimation")
+  }
 }

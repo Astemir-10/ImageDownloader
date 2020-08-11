@@ -55,6 +55,7 @@ final class SearchImageViewModel {
         print(error)
         return
       }
+      
       guard let photos = photos?.photos, !photos.isEmpty else {return}
       self.imgReq.append(contentsOf: photos)
       self.images.onNext(self.imgReq)

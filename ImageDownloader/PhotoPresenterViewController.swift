@@ -47,7 +47,6 @@ class PhotoPresenterViewController: UIViewController {
     if isSearchVCPresented {
       menuBar.mode = .hiddenRemoveAndShare
     }
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +56,6 @@ class PhotoPresenterViewController: UIViewController {
     }.disposed(by: disposeBag)
     viewModel.presentationImages.onNext(viewModel.images)
     collectionView.scrollToItem(at: viewModel.selectedIndex!, at: .centeredHorizontally, animated: false)
-    
   }
   
   // MARK: Collection View Setup
@@ -93,10 +91,8 @@ extension PhotoPresenterViewController: MenuBarActionsDelegate {
     let visbleItem = collectionView.indexPathsForVisibleItems[0]
     guard let cellCurrent = collectionView.cellForItem(at: visbleItem) as? PhotoPresenterCell,
       let image = cellCurrent.photoForPresenter.image else {return}
-    let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-    present(activity, animated: true, completion: nil)
-  
-//    let activity = UIActivityViewController(activityItems: [UIImage(data: img.)], applicationActivities: )
+    let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: [])
+    present(activityVC, animated: true, completion: nil)
   }
   
   func didDeleteButtonTapped() {

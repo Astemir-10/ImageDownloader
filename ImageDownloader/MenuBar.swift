@@ -108,6 +108,7 @@ class MenuBar: UIView {
     let barViewSize = CGSize(width: bounds.width, height: bounds.height - 20)
     let barViewPoint = CGPoint(x: bounds.minX, y: bounds.maxY - barViewSize.height)
     barView.frame = CGRect(origin: barViewPoint, size: barViewSize)
+    barView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7890357449)
     addSubview(barView)
     
     let downloadButtonSize = CGSize(width: 48, height: 48)

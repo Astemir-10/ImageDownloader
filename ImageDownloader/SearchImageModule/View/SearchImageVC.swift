@@ -81,8 +81,10 @@ class SearchImageVC: UIViewController {
   fileprivate func setupView() {
     let openGalleryIcon = UIImage(named: "openGallery")
     let saves = UIBarButtonItem(image: openGalleryIcon, style: .plain, target: self, action: #selector(openGallery))
+    let removeCacheBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "clearCache"), style: .plain, target: self, action: #selector(removeCache))
     
     navigationItem.rightBarButtonItem = saves
+    navigationItem.leftBarButtonItem = removeCacheBarButton
     searchController = UISearchController(searchResultsController: nil)
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = true
@@ -97,10 +99,25 @@ class SearchImageVC: UIViewController {
     gradioentLayer.colors = [#colorLiteral(red: 0.968627451, green: 0.8117647059, blue: 0.8117647059, alpha: 1).cgColor, #colorLiteral(red: 0.9568627451, green: 0.6666666667, blue: 0.6666666667, alpha: 1).cgColor]
     view.layer.insertSublayer(gradioentLayer, at: 0)
   }
+  
   @objc private func openGallery() {
     let gallery: GalleryViewController = GalleryViewController.loadFromStoryboard()
     gallery.modalPresentationStyle = .fullScreen
     present(gallery, animated: true)
+  }
+  
+  @objc func removeCache() {
+    let cache = URLCache.shared.currentMemoryUsage / 1024
+    
+    let alert = UIAlertController(title: "Очистить кэш?", message: "Размер кэша: \(cache) Kb", preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+      URLCache.shared.removeAllCachedResponses()
+    }
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alert.addAction(cancelAction)
+    alert.addAction(okAction)
+    present(alert, animated: true, completion: nil)
   }
   
   fileprivate func startActivityIndicator() {
@@ -116,22 +133,24 @@ class SearchImageVC: UIViewController {
 
 extension SearchImageVC: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    searchWord = searchText
+    if searchWord != nil {
+      searchWord = searchText == searchWord ? searchWord: searchText
+    } else {
+      searchWord = searchText
+    }
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    guard let searchWord = searchWord else {return}
-    searchTextField.text = searchWord
-    viewModel.request(for: searchWord)
+    guard let searchWord = searchWord, searchWord != "" else {return}
     searchController.isActive = false
+    searchTextField.text = searchWord
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    guard let searchWord = searchWord else {return}
-    searchController.searchBar.searchTextField.text = searchWord
+    guard let searchWord = searchWord, searchWord != "" else {return}
     viewModel.request(for: searchWord)
     searchController.isActive = false
-    
+    searchTextField.text = searchWord
   }
 }
 
